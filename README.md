@@ -26,7 +26,7 @@ store.dispatch(batch(add(1), sub(2)));
 
 ## redux-saga
 
-if you're using redux saga pass the emmiter to the createSagaMiddleware fn
+if you're using redux saga pass the emitter to the createSagaMiddleware fn
 
 ``` javascript
 import { emitter } from 'redux-batcher';
