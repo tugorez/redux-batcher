@@ -9,7 +9,7 @@ const enable = reducer => (state, action) => {
   return reducer(state, action);
 };
 
-const emmiter = emit => (action) => {
+const emitter = emit => (action) => {
   if (action.type === type) {
     action.payload.forEach(emit);
   } else {
@@ -17,4 +17,4 @@ const emmiter = emit => (action) => {
   }
 };
 
-module.exports = { emmiter, enable, batch };
+module.exports = { emitter, enable, batch };
