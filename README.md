@@ -3,7 +3,15 @@
 [![codecov](https://codecov.io/gh/tugorez/redux-batcher/branch/master/graph/badge.svg)](https://codecov.io/gh/tugorez/redux-batcher)
 
 similar to [redux-batched-actions](https://github.com/tshelburne/redux-batched-actions) with better syntax and universal, and also plays well with redux-saga :)
+## Install
+```sh
+$ npm install --save redux-batcher
+```
+or 
 
+```sh
+$ yarn add redux-batcher
+```
 ## Usage
 
 ```js
