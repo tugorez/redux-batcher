@@ -1,6 +1,6 @@
 {
   "name": "redux-batcher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "allow batched actions",
   "main": "lib/index.js",
   "repository": "https://github.com/tugorez/redux-batcher",
@@ -34,7 +34,5 @@
     "rimraf": "^2.6.1",
     "webpack": "^2.2.1"
   },
-  "dependencies": {
-    "form-data": "^2.1.2"
-  }
+  "dependencies": {}
 }
