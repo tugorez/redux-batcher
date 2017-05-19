@@ -1,6 +1,6 @@
 {
   "name": "redux-batcher",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "allow batched actions",
   "main": "lib/index.js",
   "repository": "https://github.com/tugorez/redux-batcher",
