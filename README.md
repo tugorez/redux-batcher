@@ -1,6 +1,6 @@
 # redux-batcher
 
-similar to [redux-batched-actions](https://github.com/tshelburne/redux-batched-actions) with better syntax and universal :)
+similar to [redux-batched-actions](https://github.com/tshelburne/redux-batched-actions) with better syntax and universal, and also plays well with redux-saga :)
 
 ## Usage
 
@@ -20,4 +20,14 @@ const reducer = (state = 0, { type, payload = 1 }) => {
 const store = createStore(enable(reducer), initialState)
 
 store.dispatch(batch(add(1), sub(2)));
+```
+
+## redux-saga
+
+if you're using redux saga pass the emmiter to the createSagaMiddleware fn
+
+``` javascript
+import { emmiter } from 'redux-batcher';
+
+createSagaMiddleware({ emmiter });
 ```

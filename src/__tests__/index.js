@@ -1,4 +1,4 @@
-import { batch, enable } from '../index';
+import { batch, emmiter, enable } from '../index';
 
 const reducer = (state = 0, { type, payload = 1 }) => {
   if (type === 'ADD') return state + payload;
@@ -54,6 +54,21 @@ describe('redux-batcher', () => {
       const action = batch(action1, action2, action3, action4);
       const state = enable(reducer)(0, action);
       expect(state).toEqual(expected);
+    });
+  });
+
+  describe('emitter', () => {
+    it('should play nice with redux-saga', () => {
+      const emit = jest.fn();
+      const action1 = { type: 'ADD' };
+      const action2 = { type: 'ADD' };
+      const action3 = { type: 'SUB' };
+      emmiter(emit)(action1);
+      emmiter(emit)(batch(action2, action3));
+      expect(emit.mock.calls.length).toBe(3);
+      expect(emit.mock.calls[0][0]).toEqual(action1);
+      expect(emit.mock.calls[1][0]).toEqual(action2);
+      expect(emit.mock.calls[2][0]).toEqual(action3);
     });
   });
 });
