@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer should compute the operations 1`] = `2`;
+
+exports[`redux-batcher batch creates a valid action 1`] = `
+Object {
+  "payload": Array [
+    Object {
+      "type": "ADD",
+    },
+    Object {
+      "type": "SUB",
+    },
+    Object {
+      "type": "SUB",
+    },
+  ],
+  "type": "@REDUX-BATCH.BATCH",
+}
+`;
+
+exports[`redux-batcher batcher should batch actions 1`] = `-1`;
+
+exports[`redux-batcher batcher should behaves normal 1`] = `3`;

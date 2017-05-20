@@ -2,7 +2,7 @@ const type = '@REDUX-BATCH.BATCH';
 
 const batch = (...payload) => ({ type, payload });
 
-const enable = reducer => (state, action) => {
+const batcher = reducer => (state, action) => {
   if (type === action.type) {
     return action.payload.reduce(reducer, state);
   }
@@ -17,4 +17,4 @@ const emitter = emit => (action) => {
   }
 };
 
-module.exports = { emitter, enable, batch };
+module.exports = { batcher, emitter, batch, enable: batcher };

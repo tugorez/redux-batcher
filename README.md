@@ -16,20 +16,29 @@ $ yarn add redux-batcher
 
 ```js
 import { createStore } from 'redux';
-import { batch, enable } from 'redux-batcher';
-import { createAction } from 'redux-actions';
+import { batcher, batch } from 'redux-batcher';
 
-const add = createAction('ADD');
-const sub = createAction('SUB');
 const reducer = (state = 0, { type, payload = 1 }) => { 
   if (type === 'ADD') return state + payload;           
   if (type === 'SUB') return state - payload;           
   return state;                                         
 };                                                      
 
-const store = createStore(enable(reducer), initialState)
+const store = createStore(batcher(reducer), initialState)
 
-store.dispatch(batch(add(1), sub(2)));
+const add5 = { type: 'ADD', payload: 5 };
+const sub5 = batch(
+  { type: 'SUB' }, 
+  { type: 'SUB' },
+  { type: 'SUB' }, 
+  { type: 'SUB' }, 
+  { type: 'SUB' }, 
+);
+
+store.dispatch(add5);
+store.dispatch(sub5);
+
+expect(store.getState()).toEqual(0);
 ```
 
 ## redux-saga
